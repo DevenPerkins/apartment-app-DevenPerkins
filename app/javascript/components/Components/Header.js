@@ -23,9 +23,9 @@ const Header = (props) => {
   return (
     <div>
     <Navbar color="light" light expand="md">
-      <NavbarBrand href="/">Beneath The Stars</NavbarBrand>
+      <NavbarBrand className="nav-brand" href="/">Beneath The Stars</NavbarBrand>
       <NavbarToggler onClick={toggle} />
-      <Collapse isOpen={isOpen} navbar>
+      <Collapse className="nav-bar-1" isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>
           <NavItem>
             <NavLink to="/">Home</NavLink>
@@ -54,7 +54,6 @@ const Header = (props) => {
             </DropdownMenu>
           </UncontrolledDropdown>
         </Nav>
-        <NavbarText>Simple Text</NavbarText>
       </Collapse>
     </Navbar>
   </div>
