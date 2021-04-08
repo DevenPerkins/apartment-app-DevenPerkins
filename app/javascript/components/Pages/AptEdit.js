@@ -4,7 +4,7 @@ import { Form, FormGroup, Label, Input } from "reactstrap";
 import { Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom'
 
-class CatEdit extends Component {
+class AptEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,17 +25,17 @@ class CatEdit extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.updateCat(this.state.form , this.props.cat.id)
+    this.props.updateApt(this.state.form , this.props.Apt.id)
     this.setState({ submitted: true })
   }
 
   render() {
     return (
       <>
-        <h2>Edit a Cat</h2>
+        <h2>Edit a Apt</h2>
         <Form>
           <FormGroup>
-            <Label for="name">Cat's Name</Label>
+            <Label for="name">Apt's Name</Label>
             <Input
               type="text"
               name="name"
@@ -44,7 +44,7 @@ class CatEdit extends Component {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="age">Cat's Age</Label>
+            <Label for="age">Apt's Age</Label>
             <Input
               type="number"
               name="age"
@@ -53,7 +53,7 @@ class CatEdit extends Component {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="enjoys">What does your cat enjoy?</Label>
+            <Label for="enjoys">What does your Apt enjoy?</Label>
             <Input
               type="text"
               name="enjoys"
@@ -64,12 +64,12 @@ class CatEdit extends Component {
           <Button
           onClick={ this.handleSubmit }
           >
-            Edit Cat
+            Edit Apt
           </Button>
         </Form>
-        { this.state.submitted && <Redirect to={ `/catshow/${ this.props.cat.id }` }/> }
+        { this.state.submitted && <Redirect to={ `/Aptshow/${ this.props.Apt.id }` }/> }
       </>
     );
   }
 }
-export default CatEdit;
+export default AptEdit;
