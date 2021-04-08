@@ -1,6 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
+import apts from './mockApts.js';
+import {
+  BrowserRouter as  Router,
+  NavLink,
+  Route,
+  Switch
+} from 'react-router-dom';
+import Header from "./Components/Header.js";
+import Footer from "./Components/Footer";
+import AboutUs from './Pages/AboutUs';
+import ContactUs from './Pages/ContactUs';
+import Home from './Pages/Home';
+
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      apts: apts,
+    };
+  }
   render() {
     const {
       logged_in,
@@ -10,7 +29,8 @@ class App extends React.Component {
       sign_out_route
     } = this.props
     return (
-      <React.Fragment>
+      <Router>
+        <Header />
         { logged_in &&
           <div>
             <a href={sign_out_route }>Sign Out</a>
@@ -21,7 +41,14 @@ class App extends React.Component {
             <a href={ sign_in_route }>Sign In</a>
           </div>
         }
-      </React.Fragment>
+        <Switch>
+          <Route exact path="/" component={ Home } />
+          <Route path="/about" component={ AboutUs } />
+          <Route path="/learn" component={ ContactUs } />
+        </Switch>
+      <Footer />
+      </Router>
+      
     )
   }
 }
