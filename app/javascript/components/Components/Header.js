@@ -7,36 +7,73 @@ import {
   Nav,
   NavItem,
   NavLink,
-} from "reactstrap";
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText
+} from 'reactstrap';
 
 const Header = (props) => {
-  const [collapsed, setCollapsed] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleNavbar = () => setCollapsed(!collapsed);
+  const toggle = () => setIsOpen(!isOpen);
 
+  
   return (
     <div>
-      <Navbar color="faded" light>
-        <NavbarBrand href="/" className="mr-auto">
-          Website Stuff
-        </NavbarBrand>
-        <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-        <Collapse isOpen={!collapsed} navbar>
-          <Nav navbar>
-        <NavItem>
-          <NavLink to="/">Home</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="/about">About Us</NavLink>
-        </NavItem>
-        <NavItem>
+    <Navbar color="light" light expand="md">
+      <NavbarBrand href="/">Beneath The Stars</NavbarBrand>
+      <NavbarToggler onClick={toggle} />
+      <Collapse isOpen={isOpen} navbar>
+        <Nav className="mr-auto" navbar>
+          <NavItem>
+            <NavLink to="/">Home</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/about">About Us</NavLink>
+          </NavItem>
+          <NavItem>
           <NavLink to="/learn">Learn More</NavLink>
-        </NavItem>
-      </Nav>
-        </Collapse>
-      </Navbar>
-    </div>
+          </NavItem>
+          <UncontrolledDropdown nav inNavbar>
+            <DropdownToggle nav caret>
+              Options
+            </DropdownToggle>
+            <DropdownMenu right>
+              <DropdownItem>
+                Option 1
+              </DropdownItem>
+              <DropdownItem>
+                Option 2
+              </DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem>
+                Reset
+              </DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
+        </Nav>
+        <NavbarText>Simple Text</NavbarText>
+      </Collapse>
+    </Navbar>
+  </div>
   );
 };
 
 export default Header;
+
+
+{/* <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+  <div className="container"><a className="navbar-brand logo" href="#">Brand</a><button data-toggle="collapse" className="navbar-toggler" data-target="#navcol-1"><span className="sr-only">Toggle navigation</span><span className="navbar-toggler-icon" /></button>
+    <div className="collapse navbar-collapse" id="navcol-1">
+      <ul className="navbar-nav ml-auto">
+        <li className="nav-item"><a className="nav-link active" href="/index.html">Home</a></li>
+        <li className="nav-item"><a className="nav-link" href="/features.html">Features</a></li>
+        <li className="nav-item"><a className="nav-link" href="/pricing.html">Pricing</a></li>
+        <li className="nav-item"><a className="nav-link" href="/about-us.html">About Us</a></li>
+        <li className="nav-item"><a className="nav-link" href="/contact-us.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav> */}

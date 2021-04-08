@@ -1,18 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import apts from '../javascript/mockApts.js'
+import apts from './mockApts.js';
 import {
   BrowserRouter as  Router,
   NavLink,
   Route,
   Switch
 } from 'react-router-dom';
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import AboutUs from './pages/AboutUs';
-import LearnMore from './pages/LearnMore';
-import Home from './pages/Home';
-class App extends Component {
+import Header from "./Components/Header.js";
+import Footer from "./Components/Footer";
+import AboutUs from './Pages/AboutUs';
+import ContactUs from './Pages/ContactUs';
+import Home from './Pages/Home';
+
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,6 +30,7 @@ class App extends Component {
     } = this.props
     return (
       <Router>
+        <Header />
         { logged_in &&
           <div>
             <a href={sign_out_route }>Sign Out</a>
@@ -42,7 +44,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={ Home } />
           <Route path="/about" component={ AboutUs } />
-          <Route path="/learn" component={ LearnMore } />
+          <Route path="/learn" component={ ContactUs } />
         </Switch>
       <Footer />
       </Router>

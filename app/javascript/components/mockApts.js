@@ -29,4 +29,6 @@ let apts = [
 
 
 ]
+
+export default apts;
  
