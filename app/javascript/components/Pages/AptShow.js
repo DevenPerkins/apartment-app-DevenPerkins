@@ -1,20 +1,25 @@
 import React from "react"
+import {
+  Button,
+  NavLink
+} from "reactstrap";
 
-class ListApts extends React.Component {
+class AptShow extends React.Component {
   render(){
     const apt = this.props.apt
   return(
     <div>
       <h1>Apt Info</h1>
 
-      <div>Street: { Apt.street }</div>
-      <div>City: { Apt.city }</div>
-      <div>State: { Apt.state }</div>
-      <div>Bedrooms: { Apt.bedrooms }</div>
-      <div>Bathrooms: { Apt.bathrooms }</div>
-      <div>Pets: { Apt.pets }</div>
+      <div>Street: { apt.street }</div>
+      <div>City: { apt.city }</div>
+      <div>State: { apt.state }</div>
+      <div>Bedrooms: { apt.bedrooms }</div>
+      <div>Bathrooms: { apt.bathrooms }</div>
+      <div>Pets: { apt.pets }</div>
+      <div>Cost: { apt.price } per month</div>
       <NavLink
-         href={`/Aptedit/${ this.props.Apt.id }`}
+         href={`/aptedit/${ this.props.apt.id }`}
       >
         <Button color="secondary">
           Edit Apt Profile
@@ -25,4 +30,4 @@ class ListApts extends React.Component {
   )
 }
 }
-export default ListApts
+export default AptShow;

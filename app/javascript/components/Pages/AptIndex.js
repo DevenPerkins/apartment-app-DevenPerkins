@@ -15,13 +15,13 @@ class AptIndex extends Component {
       <>
           <div>
       <Jumbotron fluid  className="display-3">
-        <Container fluid className="display-3">
-        <h1 className="display-3">Here are your eligible kitties</h1>
+        <Container className="-jumbo-container" fluid className="display-3">
+        <h1 className="display-3">Here are the available apartments</h1>
         <ul className="lead">
-          {this.props.Apts.map((Apt) => {
+          {this.props.apts.map((apt) => {
             return (
-            <li key={Apt.id}>
-                <NavLink to={`/Aptshow/${Apt.id}`}>{Apt.name}</NavLink>
+            <li key={apt.id}>
+                <NavLink to={`/aptshow/${apt.id}`}>{apt.street}</NavLink>
             </li>
             )
           })}

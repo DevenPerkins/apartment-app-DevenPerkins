@@ -8,9 +8,13 @@ class AptNew extends Component {
     super(props);
     this.state = {
       form: {
-        name: "",
-        age: "",
-        enjoys: ""
+        street: "",
+        city: "",
+        state: "",
+        bedrooms:"",
+        bathrooms:"",
+        pets:"",
+        cost:""
       },
       submitted: false
     };
@@ -32,30 +36,66 @@ class AptNew extends Component {
       <>
         <h2>Add a New Apt</h2>
         <Form>
-          <FormGroup>
-            <Label for="name">Apt's Name</Label>
+        <FormGroup>
+            <Label for="street">Apt's Name</Label>
             <Input
               type="text"
-              name="name"
-              value={ this.state.form.name }
+              name="street"
+              value={ this.state.form.street }
+              onChange={ this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="city">Apt's Age</Label>
+            <Input
+              type="text"
+              name="city"
+              value={ this.state.form.city}
               onChange={ this.handleChange }
             />
           </FormGroup>
           <FormGroup>
-            <Label for="age">Apt's Age</Label>
+            <Label for="state">Whats your apt State?</Label>
+            <Input
+              type="text"
+              name="state"
+              value={ this.state.form.state }
+              onChange={ this.handleChange }
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="bedrooms">Whats your apt bedrooms?</Label>
             <Input
               type="number"
-              name="age"
-              value={ this.state.form.age }
+              name="bedrooms"
+              value={ this.state.form.bedrooms }
               onChange={ this.handleChange }
             />
           </FormGroup>
           <FormGroup>
-            <Label for="enjoys">What does your Apt enjoy?</Label>
+            <Label for="bathrooms">Whats your apt bathrooms?</Label>
+            <Input
+              type="number"
+              name="bathrooms"
+              value={ this.state.form.bathrooms }
+              onChange={ this.handleChange }
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="pets">Whats your apt pets?</Label>
             <Input
               type="text"
-              name="enjoys"
-              value={ this.state.form.enjoys }
+              name="pets"
+              value={ this.state.form.pets }
+              onChange={ this.handleChange }
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="cost">Whats your apt cost?</Label>
+            <Input
+              type="text"
+              name="cost"
+              value={ this.state.form.cost }
               onChange={ this.handleChange }
             />
           </FormGroup>
@@ -65,7 +105,7 @@ class AptNew extends Component {
             Submit Apt
           </Button>
         </Form>
-        { this.state.submitted && <Redirect to="/Aptindex" /> }
+        { this.state.submitted && <Redirect to="/aptindex" /> }
       </>
     );
   }

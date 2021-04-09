@@ -1,17 +1,17 @@
  users = [
     {
         email: 'deven@findapt.com',
-        encrypted_password: 'p@@pieShoe'
+        password: 'p@@pieShoe'
     },
 
     {
         email: 'redvine@delicious.com',
-        encrypted_password: 'l@zysunday'
+        password: 'l@zysunday'
     },
 
     {
         email: 'dog@doggo.com',
-        encrypted_password: 'Too$hort'
+        password: 'Too$hort'
 
     }
  ]
