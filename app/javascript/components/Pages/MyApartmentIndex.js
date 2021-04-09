@@ -32,7 +32,7 @@ class MyAptIndex extends Component {
                           Update Listing
                         </Button>
                       </NavLink>
-                      <NavLink to="/ss">
+                      <NavLink to="/myapts">
                         <Button color="secondary" onClick={ () => this.props.deleteApt(apt.id) }>
                           Remove Listing
                         </Button>
