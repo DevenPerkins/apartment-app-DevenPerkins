@@ -14,7 +14,8 @@ class AptNew extends Component {
         bedrooms:"",
         bathrooms:"",
         pets:"",
-        cost:""
+        price:"",
+        user_id: this.props.current_user.id
       },
       submitted: false
     };
@@ -91,11 +92,11 @@ class AptNew extends Component {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="cost">Whats your apt cost?</Label>
+            <Label for="price">Whats your apt price?</Label>
             <Input
               type="text"
-              name="cost"
-              value={ this.state.form.cost }
+              name="price"
+              value={ this.state.form.price }
               onChange={ this.handleChange }
             />
           </FormGroup>

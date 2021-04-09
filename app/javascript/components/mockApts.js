@@ -24,7 +24,7 @@ let apts = [
       bedrooms: 2,
       bathrooms: 2,
       pets:"yes",
-      user_id: 2,
+      user_id: 6,
    }
 
 

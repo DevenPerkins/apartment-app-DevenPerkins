@@ -21,7 +21,7 @@ class Header extends Component {
       <NavbarBrand className="nav-brand" href="/">Beneath The Stars</NavbarBrand>
         <Nav className="mr-auto" navbar>
           <NavItem>
-            <NavLink to="/">Home</NavLink>
+            <NavLink href="/">Home</NavLink>
           </NavItem>
           <NavItem>
               <NavLink href="/aptindex/">Listed Apts</NavLink>
@@ -29,7 +29,7 @@ class Header extends Component {
           { logged_in &&
             <>
               <NavItem>
-                <NavLink to="/myapt">My Apartments</NavLink>
+                <NavLink href="/myapts">My Apartments</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/aptnew">Add New Apt</NavLink>

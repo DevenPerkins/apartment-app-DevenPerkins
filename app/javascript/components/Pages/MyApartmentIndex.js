@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Card, CardTitle, Col, Row } from 'reactstrap'
+import { Button, Card, CardGroup, Col, Row } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
 
 
@@ -8,18 +8,14 @@ class MyAptIndex extends Component {
     return (
       <>
       <h3>My Apartments</h3>
-      <Row className="cards">
+      <CardGroup className="cards">
           { this.props.myApts.map(apt => {
             return (
-              <Col sm="4" key={ apt.id }>
+              <Card sm="4" key={ apt.id }>
                 <div className="my-show-card">
                   <h4>Location</h4>
                   <h5>{ apt.street }</h5>
                   <h5>{ apt.city }, { apt.state }</h5>
-                  <br />
-                  {/* <h4>Manager Info</h4>
-                  <h5>{ faUser } className="fa-icon" />{ apt.manager }</h5>
-                  <h5>{ faEnvelope } className="fa-icon" />{ apt.email }</h5> */}
                   <br />
                   <h4>Details</h4>
                   <h5>{ apt.price } per month</h5>
@@ -39,10 +35,10 @@ class MyAptIndex extends Component {
                       </NavLink>
                     </p>
                 </div>
-              </Col>
+              </Card>
             )
           })}
-      </Row>
+      </CardGroup>
       </>
     )
   }

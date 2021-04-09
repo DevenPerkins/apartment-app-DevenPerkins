@@ -1,9 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-import apts from './mockApts.js';
 import {
   BrowserRouter as  Router,
-  NavLink,
   Route,
   Switch
 } from 'react-router-dom';
@@ -21,22 +18,93 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      apts: apts,
+      apts: []
     };
   }
 
-  createNewApt = (newapt) => {
-    console.log(newapt)
+  componentDidMount(){
+    this.aptIndex();
   }
 
-  updateApt = (apt, id) => {
-    console.log("apt:", apt)
-    console.log("id:", id)
+  aptIndex = () => {
+    fetch("http://localhost:3000/apartments")
+    .then(response => {
+      return response.json()
+    })
+    .then(aptsArray => {
+      console.log(aptsArray)
+      this.setState({ apts: aptsArray })
+    })
+    .catch(errors => {
+      console.log("index errors:", errors)
+    })
   }
-
+  
+  createNewApt = (newApt) => {
+    fetch("http://localhost:3000/apartments" , {
+      body: JSON.stringify(newApt),
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => {
+      if(response.status === 422){
+        alert("Something is wrong with your submission.")
+      }
+      return response.json()
+    })
+    .then(payload => {
+      console.log(payload)
+      this.aptIndex()
+    })
+    .catch(errors => {
+      console.log("create errors:" , errors)
+    })
+  }
+  updateApt = (Apt , id) => {
+    fetch(`http://localhost:3000/apartments/${id}` , {
+      body: JSON.stringify(Apt),
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => {
+      if(response.status === 422){
+        alert("Something is wrong with your submission.")
+      }
+      return response.json()
+    })
+    .then(payload => {
+      console.log(payload)
+      this.aptIndex()
+    })
+    .catch(errors => {
+      console.log("update errors:" , errors)
+    })
+  }
   deleteApt = (id) => {
-    console.log(id)
-  };
+    fetch(`http://localhost:3000/apartments/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => {
+      if(response.status === 422){
+        alert("Something is wrong with your submission.")
+      }
+      return response.json()
+    })
+    .then(payload => {
+      console.log(payload)
+      this.aptIndex()
+    })
+    .catch(errors => {
+      console.log("delete errors:", errors)
+    })
+  }
 
   render() {
     const {
@@ -90,7 +158,7 @@ class App extends React.Component {
           { logged_in &&
            <Route path="/aptnew" render={(props) => {
             return <AptNew createNewApt={
-              this.createNewApt } />
+              this.createNewApt } current_user = { current_user } />
           }}
            />
         }
