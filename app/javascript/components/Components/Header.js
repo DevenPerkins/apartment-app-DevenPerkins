@@ -19,7 +19,7 @@ class Header extends Component {
     <div>
     <Navbar color="light" light expand="md">
       <NavbarBrand className="nav-brand" href="/">Beneath The Stars</NavbarBrand>
-        <Nav className="mr-auto" navbar>
+        <Nav className="header-bar" navbar>
           <NavItem>
             <NavLink href="/">Home</NavLink>
           </NavItem>
@@ -40,7 +40,7 @@ class Header extends Component {
             </>
           }
           { !logged_in &&
-            <NavItem>
+            <NavItem className="header-bar">
               <a href={ sign_in_route }>Sign In</a>
             </NavItem>
           }
