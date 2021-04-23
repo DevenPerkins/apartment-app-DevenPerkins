@@ -19,7 +19,7 @@ class Header extends Component {
     <div>
     <Navbar color="light" light expand="md">
       <NavbarBrand className="nav-brand" href="/">Beneath The Stars</NavbarBrand>
-        <Nav className="header-bar" navbar>
+        <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink href="/">Home</NavLink>
           </NavItem>
@@ -34,7 +34,7 @@ class Header extends Component {
               <NavItem>
                 <NavLink href="/aptnew">Add New Apt</NavLink>
               </NavItem>
-              <NavItem>
+              <NavItem >
                 <a href={ sign_out_route }>Sign Out</a>
               </NavItem>
             </>
