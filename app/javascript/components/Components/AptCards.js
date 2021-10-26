@@ -8,7 +8,7 @@ const AptCards = (props) => {
   return (
     <CardDeck>
       <Card>
-        <CardImg top width="100%" src="/assets/256x186.svg" alt="Card image cap" />
+        <CardImg top width="100%" src="./alex-shu-EW6_WGbTC78-unsplash.jpg" alt="nice apartment" />
         <CardBody>
           <CardTitle tag="h5">Card title</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>

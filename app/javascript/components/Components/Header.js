@@ -6,6 +6,7 @@ import {
   Nav,
   NavItem,
   NavLink,
+  Button
 } from 'reactstrap';
 
 class Header extends Component {
@@ -35,13 +36,13 @@ class Header extends Component {
                 <NavLink href="/aptnew">Add New Apt</NavLink>
               </NavItem>
               <NavItem >
-                <a href={ sign_out_route }>Sign Out</a>
+              <Button color="primary" href={ sign_out_route }>Sign Out</Button>
               </NavItem>
             </>
           }
           { !logged_in &&
             <NavItem className="header-bar">
-              <a href={ sign_in_route }>Sign In</a>
+              <Button color="primary" href={ sign_in_route }>Sign In</Button>
             </NavItem>
           }
         </Nav>

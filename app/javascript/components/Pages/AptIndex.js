@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import { NavLink } from 'react-router-dom';
-import { Jumbotron, Container } from 'reactstrap';
-
+import React, { Component } from 'react'
+import { Button, Card, CardTitle, Col, Row } from 'reactstrap'
+import { NavLink } from 'react-router-dom'
+import { faHome, faCity } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class AptIndex extends Component {
   render() {
     const {
@@ -13,22 +14,33 @@ class AptIndex extends Component {
     } = this.props
     return (
       <>
-          <div>
-      <Jumbotron fluid  className="display-3">
-        <Container className="-jumbo-container" fluid className="display-3">
-        <h1 className="display-3">Here are the available apartments</h1>
-        <ul className="lead">
-          {this.props.apts.map((apt) => {
+      <div className="page-body">
+        <h3>All the Apartments</h3>
+        <br />
+        <br />
+        <Row className="cards">
+          {this.props.apts && this.props.apts.map(apartment => {
             return (
-            <li key={apt.id}>
-                <NavLink to={`/aptshow/${apt.id}`}>{apt.street}</NavLink>
-            </li>
+              <Card key={apartment.id}>
+                <div>
+                  <FontAwesomeIcon icon={faHome} className="fa-icon" />
+                    {apartment.street}
+                </div>
+                <div>
+                  <FontAwesomeIcon icon={faCity} className="fa-icon" />
+                    {apartment.city}, {apartment.state}
+                </div>
+                <br />
+                <NavLink to={`/apartmentshow/${apartment.id}`}>
+                  <Button>
+                    More Info
+                  </Button>
+                </NavLink>
+              </Card>
             )
           })}
-        </ul>
-        </Container>
-      </Jumbotron>
-    </div>
+        </Row>
+      </div>
       </>
     );
   }

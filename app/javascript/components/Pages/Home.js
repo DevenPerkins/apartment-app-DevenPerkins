@@ -15,7 +15,7 @@ class Home extends React.Component {
       <Jumbotron fluid className="jumbotron">
         <Container fluid className="jumbo-container">
           <h1 className="display-3">Discover Your Next Home</h1>
-          <p className="lead">Jeff Goldblum has helped over 100 million find a home.</p>
+          <h4 className="lead">Jeff Goldblum has helped over 100 million find a home.</h4>
           <SearchBar className="main-search" /> 
         </Container>
       </Jumbotron>
